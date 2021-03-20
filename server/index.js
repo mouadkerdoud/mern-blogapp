@@ -3,9 +3,15 @@ const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 const cors = require("cors")
 
+const postRoutes = require("./routes/posts")
 
  //Express app
  const app = express()
+
+
+ //Middleware
+ app.use("/posts", postRoutes)
+
 
  //General config
  app.use(bodyParser.json({limit: "30mb", extended: true}))
